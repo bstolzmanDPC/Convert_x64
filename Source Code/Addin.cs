@@ -62,6 +62,8 @@ namespace Convert_x64
                     Attempted = new StreamWriter(f.LogPath + "\\files_attemped.log");
                     Saved = new StreamWriter(f.LogPath + "\\files_saved.log");
 
+                    ShowPB();
+                    InitializePB(Path.GetDirectoryName(f.Path));
                     SaveAllFiles(f.Path);
 
                     Attempted.Close();
@@ -80,9 +82,9 @@ namespace Convert_x64
                     MessageBox.Show(message, caption, buttons, icon);
                 }
                 finally
-                {
-                    Thread.Sleep(1500);
+                {                    
                     PB.Finished();
+                    Thread.Sleep(1500);
                 }
 
             }
@@ -111,9 +113,7 @@ namespace Convert_x64
 
             //GEt collection of files in the directory
             var files = Directory.GetFiles(folder);
-
-            ShowPB(); 
-            InitializePB(folder);
+                        
 
             //loop through each file in the collection and attempt to save it.
             foreach(string file in files)
@@ -151,13 +151,21 @@ namespace Convert_x64
 
         static private void InitializePB(string folder)
         {
+            if (PB.IsCanceled)
+            {
+                throw new OperationCanceledException();
+            }
             PB.DialogTitle = "Converting files in " + Path.GetDirectoryName(folder);
             PB.Range = Directory.GetFiles(folder).Length;
-            PB.position = 1;
+            PB.position = 1;           
         }
 
         static private void UpdatePB(string file)
         {
+            if (PB.IsCanceled)
+            {
+                throw new OperationCanceledException();
+            }
             PB.Text = file;
             PB.increment();
         }
