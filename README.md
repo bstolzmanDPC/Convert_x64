@@ -13,7 +13,7 @@ _Language:_ C#
 ***
 
 ### Directions For Use
-* Dowload the latest Release (.dll)
+* Download the latest Release (.dll)
 * Load the .dll file into FeatureCAM from the Addins Ribbon tab
 * Click the Convert_x64 button in the macros tab to start
 * Either enter the path to the folder containing the files to convert manually, or use the file selection dialog.
