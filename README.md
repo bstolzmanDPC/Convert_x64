@@ -3,7 +3,7 @@
 ### Description:
 *Conversion Add-In for FeatureCAM allowing users to convert entire collections of old 32bit CAM files to 64bit.*
 
-This was created as improvment to an existing addin provided with the software, and also as an example to FeatureCAM users looking to explore development options outside the provided basic IDE. The source code offers an insight into what FeatureCAM needs to interface and run properly with your programs.
+This was created as an example to FeatureCAM users looking to explore development options outside the provided basic IDE. The source code offers an insight into what FeatureCAM needs to interface and run properly with your plugins. This is essentially the same as the macro shipped with the 2019 Release of FeatureCAM. I added file browsing functionality because I was sick of copying folder paths.
 ***
 
 _Language:_ C#
