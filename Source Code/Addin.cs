@@ -13,29 +13,15 @@ namespace Convert_x64
         #region FeatureCAM Software Prep Stuff
 
         static public FeatureCAM.Application Application { get; set; }
-
-        static public IFMDllAddIn Addin { get; set; }
        
         static public void OnConnect(object obj, tagFMAddInFlags flags)
         {
-            Application.CommandBars.CreateButton("Utilities", "Convert_x64", tagFMMacroButtonFaceId.eMBFID_VerticalScroll);
+            App.CommandBars.CreateButton("Utilities", "Convert_x64", tagFMMacroButtonFaceId.eMBFID_VerticalScroll);
         }
 
         static public void OnDisConnect(tagFMAddInFlags flags)
         {
             Application.CommandBars.DeleteButton("Utilities", "Convert_x64");
-        }
-
-        static public void AttachEventHandlers()
-        {
-            ((_IFMDllAddInEvents_Event)Addin).OnConnect += new _IFMDllAddInEvents_OnConnectEventHandler(OnConnect);
-            ((_IFMDllAddInEvents_Event)Addin).OnDisConnect += new _IFMDllAddInEvents_OnDisConnectEventHandler(OnDisConnect);
-        }
-
-        static public void RemoveEventHandlers()
-        {
-            ((_IFMDllAddInEvents_Event)Addin).OnConnect -= new _IFMDllAddInEvents_OnConnectEventHandler(OnConnect);
-            ((_IFMDllAddInEvents_Event)Addin).OnDisConnect -= new _IFMDllAddInEvents_OnDisConnectEventHandler(OnDisConnect);
         }
 
         #endregion
